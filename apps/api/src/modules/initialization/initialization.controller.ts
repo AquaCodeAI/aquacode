@@ -1,6 +1,7 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { PublicAuth } from '@aquacode/common';
+import { ProjectItemResponseDto, PublicAuth } from '@aquacode/common';
+import { plainToInstance } from 'class-transformer';
 import { InitializationService } from './initialization.service';
 
 @ApiTags('Initialization')
@@ -24,7 +25,10 @@ export class InitializationController {
 		status: 500,
 		description: 'An internal server error occurred while processing your request.',
 	})
-	async initialize() {
-		return this.initializationService.initialize();
+	async initialize(): Promise<ProjectItemResponseDto> {
+		const initialization = await this.initializationService.initialize();
+		return plainToInstance(ProjectItemResponseDto, initialization, {
+			excludeExtraneousValues: true,
+		});
 	}
 }

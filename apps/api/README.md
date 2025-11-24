@@ -102,6 +102,7 @@ pnpm run dev
 
 ## Initial Setup
 
+Before accessing **AquaCode Studio**, you need to run the Initial Setup to create the first user account and configure the project.
 Run the API in development mode and open the auto-generated documentation:
 
 `http://localhost:3001/docs`
@@ -120,7 +121,32 @@ AQUA_STUDIO_DEFAULT_EMAIL
 AQUA_STUDIO_DEFAULT_PASSWORD
 ```
 
-You can now access **AquaCode Studio** using that user.
+The request returns a response like this:
+
+```
+{
+  "result": {
+    "_id": "prj_01KADJ8MD4JQTCZ5QSXZYQQVPD",
+    "name": "aqua-project",
+    "description": "From idea to an app with AI",
+    "domain": null,
+    "isPlatform": true,
+    "connection": "Aqua-Connection",
+    "projectMetaData": {},
+    "createdAt": "2025-11-19T08:04:00.048Z",
+    "updatedAt": "2025-11-19T08:04:00.048Z"
+  },
+  "success": true,
+  "errors": [],
+  "messages": [
+    "Platform initialization completed successfully"
+  ]
+}
+```
+
+Copy the project ID from result._id and set it as the `.env` value of `NEXT_PUBLIC_AQUA_PROJECT_ID` in **AquaCode Studio**.
+
+You can now log in to **AquaCode Studio** using this account.
 
 ---
 

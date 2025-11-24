@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import {
 	BadRequestException,
+	ItemResponseDto,
 	ProjectDocument,
 	ProjectsService,
 	UsersService,
@@ -27,7 +28,7 @@ export class InitializationService {
 			this.configService.get('AQUA_STUDIO_DEFAULT_PASSWORD') ?? null;
 	}
 
-	async initialize() {
+	async initialize(): Promise<ItemResponseDto<ProjectDocument>> {
 		this.logger.log('Starting platform initialization...');
 		if (!this.aquaStudioDefaultEmail || !this.aquaStudioDefaultPassword) {
 			this.logger.warn(InitializationErrors.REQUIRED_ENV_VARS_MISSING);
@@ -60,9 +61,9 @@ export class InitializationService {
 
 		this.logger.log('Platform initialization completed successfully');
 		return {
-			result: { project },
+			result: project,
 			success: true,
-			message: ['Platform initialization completed successfully'],
+			messages: ['Platform initialization completed successfully'],
 			errors: [],
 		};
 	}
