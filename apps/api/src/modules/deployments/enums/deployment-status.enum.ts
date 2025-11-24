@@ -1,0 +1,8 @@
+export enum DeploymentStatus {
+	QUEUED = 'QUEUED',
+	BUILDING = 'BUILDING',
+	ERROR = 'ERROR',
+	INITIALIZING = 'INITIALIZING',
+	READY = 'READY',
+	CANCELED = 'CANCELED',
+}

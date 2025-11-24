@@ -1,0 +1,6 @@
+export enum SandboxStatus {
+	INITIALIZING = 'INITIALIZING',
+	INITIALIZED = 'INITIALIZED',
+	CLOSED = 'CLOSED',
+	FAILED = 'FAILED',
+}

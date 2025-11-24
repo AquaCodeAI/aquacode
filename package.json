@@ -1,0 +1,40 @@
+{
+  "name": "aquacode",
+  "version": "bali-0.0.1",
+  "description": "The no-code platform for building apps.",
+  "homepage": "https://aquacode.ai",
+  "author": "AquaCode",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:api": "turbo run dev --filter=api",
+    "dev:studio": "turbo run dev --filter=studio",
+    "build": "turbo run build",
+    "build:api": "turbo run build --filter=api",
+    "build:studio": "turbo run build --filter=studio",
+    "start": "turbo run start",
+    "start:api": "turbo run start --filter=api",
+    "start:studio": "turbo run start --filter=studio",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aquacode/aquacode.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "AI",
+    "no-code",
+    "natural language",
+    "base44",
+    "lovable",
+    "replit"
+  ],
+  "packageManager": "pnpm@8.15.0"
+}
